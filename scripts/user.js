@@ -44,7 +44,6 @@ function addSteinsToPage(steins) {
   let source = $('#stein-img').html();
   let template = Handlebars.compile(source);
   let context = {steins};
-  console.log(steins);
   let html = template(context);
   $('#stein-info').html(html);
   return steins.id;
