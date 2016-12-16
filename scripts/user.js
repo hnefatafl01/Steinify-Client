@@ -1,4 +1,4 @@
-const STEIN_URL = 'http://localhost:3000';
+const STEIN_URL = getUrl();
 
 $(document).ready(()=>{
   let parsedQuery = parseQueryString(window.location.search);
@@ -6,7 +6,7 @@ $(document).ready(()=>{
   .then(addUserInfoToPage)
   .then(getSteins)
   .then(addSteinsToPage)
-
+  .catch(someError);
 });
 
 function getUserByID(id) {
@@ -48,3 +48,15 @@ function addSteinsToPage(steins) {
   $('#stein-info').html(html);
   return steins.id;
 };
+
+function getUrl(){
+  if (window.location.host.indexOf('localhost') != -1) {
+    return 'http://localhost:3000';
+  } else {
+    return 'https://steinify-61f9a.firebaseapp.com';
+  }
+};
+
+function someError(){
+  alert('no dice');
+}
