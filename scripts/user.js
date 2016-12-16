@@ -53,7 +53,7 @@ function getUrl(){
   if (window.location.host.indexOf('localhost') != -1) {
     return 'http://localhost:3000';
   } else {
-    return 'https://steinify-61f9a.firebaseapp.com';
+    return 'https://steinify.herokuapp.com';
   }
 };
 
