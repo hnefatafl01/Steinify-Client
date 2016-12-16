@@ -20,11 +20,38 @@
         </div>
     </nav>
     <main class="container">
+      <div id="user-info" class="panel panel-default">
+
+      </div>
+      <div id="stein-info" class="panel panel-default">
+
+      </div>
       <div class="panel panel-default">
         <a href="index.html"><button type="button" class="btn btn-default">Home</button></a>
       </div>
     </main>
   </body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.min.js"></script>
   <script src="./scripts/user.js"></script>
+  <script id="user-template" type="text/x-handlebars-template">
+    <h1>{{email}}</h1>
+  </script>
+  <script id="stein-img" type="text/x-handlebars-template">
+
+    <div class="row">
+      {{#each steins}}
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <img src="{{image_url}}" alt="stein-image">
+          <div class="caption">
+            <!-- <h3>{{country}}</h3> -->
+          </div>
+        </div>
+      </div>
+    {{/each}}
+    </div>
+
+
+  </script>
 </html>
