@@ -1,6 +1,7 @@
 const STEIN_URL = getUrl();
 
 $(document).ready(()=>{
+  addSubmitHandler();
   let parsedQuery = parseQueryString(window.location.search);
   getUserByID(parsedQuery.id)
   .then(addUserInfoToPage)
@@ -56,6 +57,27 @@ function getUrl(){
     return 'https://steinify.herokuapp.com';
   }
 };
+
+function addSubmitHandler() {
+  let userId = parseQueryString(window.location.search);
+  console.log(userId);
+  $('#add-stein').submit(function(userId.id){
+    $.ajax({
+      type: 'POST',
+      url: `/${id}/user/`,
+      dataType: "JSON",
+      data: JSON.stringify({
+        origin: $('#origin').val(),
+        material: $('#material').val(),
+        image: $('#image').val(),
+        size: $('#size').val()
+      }),
+      success: function() {
+        window.location='/user';
+      }
+    })
+  })
+}
 
 function someError(){
   alert('no dice');
